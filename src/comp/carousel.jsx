@@ -24,7 +24,10 @@ export default function CardCarousel({ filterText }) {
       name: 'Tokyo',
       title: "Immerse yourself in the captivating fusion of ancient traditions and futuristic innovation in Tokyo. Explore ancient temples, witness breathtaking cherry blossoms, indulge in exquisite cuisine, and dive into the bustling streets of Shibuya, making it an unforgettable cultural adventure.",
       Src: "https://blog.japanwondertravel.com/wp-content/uploads/2022/03/manuel-velasquez-ssfp9okORYs-unsplash.jpg"
-    },
+    }
+    
+    ,
+    
     {
       name: "Barcelona",
       title: "A lively city by the sea, famous for beautiful buildings like La Sagrada Familia. Walk around the charming Gothic Quarter, enjoy sunny beaches, taste delicious small plates called tapas, and feel the vibrant energy of this diverse and exciting place.",

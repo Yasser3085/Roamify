@@ -17,7 +17,7 @@ import {
   
   export default function App(){
     return (
-      <Box bg="white" borderTop='1px solid black' mt={20} _dark={{ bg: "gray.600" }}>
+      <Box  bg="white" borderTop='1px solid black' mt={20} _dark={{ bg: "gray.600" }}>
         <Stack
           direction={{ base: "column", lg: "row" }}
           w="full"
