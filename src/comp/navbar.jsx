@@ -136,6 +136,7 @@ export default function Navbar({ onFilterText }) {
         width="100%"
         position="absolute"
       />
+      
       <Text
         position="absolute"
         top="50%"

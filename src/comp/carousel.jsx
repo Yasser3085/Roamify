@@ -59,8 +59,9 @@ export default function CardCarousel({ filterText }) {
         </chakra.h1>
         
       </Flex>
+      
 
-      <Carousel
+      <Carousel 
         showThumbs={false}
         showStatus={false}
         showArrows={true}
