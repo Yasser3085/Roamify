@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Flex, Image, Link, chakra , Button} from "@chakra-ui/react";
-import {IoMdArrowForward} from 'react-icons/Io'
+
 export default function Card(props){
   return (
     <Flex
@@ -59,7 +59,7 @@ export default function Card(props){
             
             
               </Flex>
-              <Button rightIcon={<IoMdArrowForward />} colorScheme='teal' variant='outline'>
+              <Button colorScheme='teal' variant='outline'>
    Discover More
   </Button>
             </Flex>
