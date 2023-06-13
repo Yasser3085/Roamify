@@ -1,9 +1,10 @@
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Card from './Card';
-import { Flex, chakra } from '@chakra-ui/react';
+import { Flex, chakra,useMediaQuery,Box,useBreakpointValue } from '@chakra-ui/react';
 
 export default function CardCarousel({ filterText }) {
+  
   const cards = [
     {
       name: "Paris",
@@ -45,42 +46,49 @@ export default function CardCarousel({ filterText }) {
       )
     : cards;
 
-  const centerSlidePercentage = filteredCards.length === 1 ? 100 : 33;
-
+    
+  const [isMobile] = useMediaQuery("(max-width: 600px)");
   return (
     <>
       <Flex w={'90%'} height={'100px'} alignItems={'center'} mx={10} mt={5}>
-        <chakra.h1 color={'#4D4E6C'} borderBottom={'1px solid #4D4E6C'} fontSize={'4xl'} fontFamily={'Viga'}>
+        <chakra.h1 color={'#4D4E6C'} _dark={{color:"white"}} borderBottom={'1px solid #4D4E6C'} fontSize={'4xl'} fontFamily={'Viga'}>
           Trending Now <br/>
-          <chakra.h1 color={'#4D4E6C'} borderBottom={'1px solid #4D4E6C'} fontWeight='light' fontSize={'large'} fontFamily={'arial'} >
+          <chakra.h1 color={'#4D4E6C'} _dark={{color:"white"}} borderBottom={'1px solid #4D4E6C'} fontWeight='light' fontSize={'large'} fontFamily={'arial'} >
        
           Know the latest on travel updates , visa requirements and newest attractions
         </chakra.h1>
         </chakra.h1>
         
-      </Flex>
+      </Flex >
       
 
-      <Carousel 
-        showThumbs={false}
-        showStatus={false}
-        showArrows={true}
-        emulateTouch={true}
-        infiniteLoop={true}
-        centerMode={true}
-        swipeable={true}
-        centerSlidePercentage={centerSlidePercentage}
-      >
-        {filteredCards.map((card) => (
-          <Card key={card.name} name={card.name} title={card.title} Src={card.Src} />
-        ))}
-      </Carousel>
+
+      <Box mx={10} mt={5}>
+        <Carousel
+          showThumbs={false}
+          showStatus={false}
+          showArrows={true}
+      
+          infiniteLoop={true}
+          centerMode={true}
+          swipeable={true}
+          centerSlidePercentage='33'
+        >
+          {filteredCards.map((card) => (
+            <Card key={card.name} name={card.name} title={card.title} Src={card.Src} />
+          ))}
+        </Carousel>
+      </Box>
+
 
       {filterText && filteredCards.length === 0 && (
         <Flex justifyContent="center" alignItems="center" mt={5}>
           <chakra.p>No city found.</chakra.p>
         </Flex>
       )}
+  
+
+    
     </>
   );
 }

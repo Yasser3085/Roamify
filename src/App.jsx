@@ -16,6 +16,7 @@ function App() {
 
   return (
     <>
+    
     <Navbar onFilterText={handleFilterText} />
 
       <CardCarousel filterText={filterText} />

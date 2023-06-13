@@ -19,6 +19,7 @@ import {
 } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { SiYourtraveldottv } from 'react-icons/si';
+import VideoBackground from './videobg';
 
 export default function Navbar({ onFilterText }) {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
@@ -30,6 +31,7 @@ export default function Navbar({ onFilterText }) {
   const [formErrors, setFormErrors] = useState({ name: '', email: '', password: '' });
   const [signUpModalOpen, setSignUpModalOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
+
 
   useEffect(() => {
     // Check if user is already registered
@@ -126,16 +128,25 @@ export default function Navbar({ onFilterText }) {
     setLoggedIn(false);
   };
 
-  return (
+  return ( <>
+   
+
     <Box height={'30rem'} width={'100%'} position="relative">
-      <Img
-        objectFit={'cover'}
-        src="https://image.cnbcfm.com/api/v1/image/107178919-1673854215895-gettyimages-669463000-shutterstock_621020393.jpeg?v=1674003106"
-        alt=""
-        height="100%"
-        width="100%"
-        position="absolute"
-      />
+  
+    <video
+        src="./images/video4.mp4" // Replace with the actual video source
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+        }}
+        autoPlay
+        muted
+        loop
+      ></video>
       
       <Text
         position="absolute"
@@ -144,7 +155,7 @@ export default function Navbar({ onFilterText }) {
         transform="translate(-50%, -50%)"
         color="white"
         textShadow={'0 0 30px #000000'}
-        fontSize="90px"
+        fontSize={isMobile ? '40px' : '80px'}
        fontWeight={'light'}
         fontFamily={'Alegreya Sans SC'}
         zIndex={1}
@@ -164,7 +175,7 @@ export default function Navbar({ onFilterText }) {
         flexDirection={isMobile ? 'column' : 'row'}
       >
         <SiYourtraveldottv size={'50'} />
-        <chakra.h1 ml={2} fontSize="3rem" fontFamily={'Viga'}>
+        <chakra.h1 ml={2} fontSize={isMobile ? '20px' : '3rem'} fontFamily={'Viga'}>
           Roamify
         </chakra.h1>
 
@@ -242,7 +253,7 @@ export default function Navbar({ onFilterText }) {
                 />
               </FormControl>
               {formErrors.password && <Box color="red">{formErrors.password}</Box>}
-              <Button colorScheme="teal" onClick={handleRegistration}>
+              <Button color="black" onClick={handleRegistration}>
                 Sign Up
               </Button>
             </VStack>
@@ -278,7 +289,7 @@ export default function Navbar({ onFilterText }) {
                 />
               </FormControl>
               {formErrors.password && <Box color="red">{formErrors.password}</Box>}
-              <Button colorScheme="teal" onClick={handleLogin}>
+              <Button  onClick={handleLogin}>
                 Login
               </Button>
             </VStack>
@@ -286,5 +297,6 @@ export default function Navbar({ onFilterText }) {
         </ModalContent>
       </Modal>
     </Box>
+    </>
   );
 }

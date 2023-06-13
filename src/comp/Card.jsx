@@ -16,7 +16,7 @@ export default function Card(props){
         rounded="lg"
         shadow="md"
         bg="white"
-        _dark={{ bg: "gray.800" }}
+        _dark={{ bg: "gray.700" , border:'0.5px solid black' }}
         maxW="2xl"
       >
         <Image
@@ -47,7 +47,7 @@ export default function Card(props){
               mt={2}
               fontSize="sm"
               color="gray.600"
-              _dark={{ color: "gray.400" }}
+              _dark={{ color: "gray.200" }}
             >
             {props.title}
             </chakra.p>
